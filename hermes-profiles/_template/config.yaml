@@ -1,0 +1,57 @@
+# Hermes profile config — reference template.
+# Per-profile configs in sibling folders only override what they need;
+# this file shows the full surface area worth knowing about.
+# Full schema: https://hermes-agent.nousresearch.com/docs/user-guide/configuration
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+  # context_length: 200000
+  # base_url: ""                  # custom OpenAI-compatible endpoint
+
+memory:
+  memory_enabled: true            # profiles are stateful — keep this on
+  user_profile_enabled: true
+  memory_char_limit: 4000
+  user_char_limit: 1500
+
+compression:
+  enabled: true
+  threshold: 0.6                  # compress at 60% of context
+  protect_last_n: 20
+
+agent:
+  max_turns: 90
+  reasoning_effort: "medium"      # none | minimal | low | medium | high | xhigh
+  tool_use_enforcement: "auto"
+  # disabled_toolsets:            # turn off tool families this profile doesn't need
+  #   - browser
+  #   - tts
+
+terminal:
+  backend: "local"                # local | docker | ssh | modal | daytona | vercel_sandbox
+  timeout: 180
+  persistent_shell: true
+
+web:
+  backend: "tavily"               # firecrawl | searxng | parallel | tavily | exa
+
+approvals:
+  mode: "smart"                   # manual | smart | off
+
+display:
+  tool_progress: "new"
+  streaming: true
+  show_reasoning: false
+  show_cost: true
+
+security:
+  redact_secrets: true
+
+# Delegation is off by default. Only studio-coach turns this on.
+delegation:
+  orchestrator_enabled: false
+  max_concurrent_children: 3
+  max_spawn_depth: 2
+
+# timezone: "Europe/Berlin"

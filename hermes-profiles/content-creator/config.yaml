@@ -1,0 +1,22 @@
+# Content Creator — tuned for long-form writing and SEO research.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 6000          # brand voice, pillars, calendar
+
+agent:
+  reasoning_effort: "medium"
+  max_turns: 100
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "tavily"                 # research and SEO
+
+approvals:
+  mode: "smart"

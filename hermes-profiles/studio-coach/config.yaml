@@ -1,0 +1,26 @@
+# Studio Coach — the only profile with delegation enabled.
+# Orchestrates the other profiles as subagents.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 10000          # tracks state across all delegated work
+
+agent:
+  reasoning_effort: "high"           # coordination decisions benefit from reasoning
+  max_turns: 150
+  disabled_toolsets:
+    - tts
+    - stt
+
+delegation:
+  orchestrator_enabled: true         # this is the orchestrator
+  max_concurrent_children: 4
+  max_spawn_depth: 2
+  # model: "anthropic/claude-sonnet-4-5"   # children inherit unless overridden
+
+approvals:
+  mode: "smart"

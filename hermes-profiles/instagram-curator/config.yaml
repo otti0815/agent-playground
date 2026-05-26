@@ -1,0 +1,21 @@
+# Instagram Curator — tuned for platform monitoring and content cadence.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 5000
+
+agent:
+  reasoning_effort: "medium"
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "tavily"                 # trend monitoring
+
+approvals:
+  mode: "smart"

@@ -1,0 +1,26 @@
+# Trend Researcher — tuned for web scanning and synthesis.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 8000          # large — tracks many concurrent trends
+
+agent:
+  reasoning_effort: "medium"
+  max_turns: 100
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "exa"                    # better for trend / news discovery
+  # search_backend: "tavily"        # alternative if Exa unavailable
+
+browser:
+  inactivity_timeout: 600           # for deeper exploration of platforms
+
+approvals:
+  mode: "smart"

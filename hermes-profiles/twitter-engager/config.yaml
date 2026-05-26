@@ -1,0 +1,21 @@
+# Twitter / X Engager — tuned for real-time engagement and threading.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 5000
+
+agent:
+  reasoning_effort: "medium"
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "tavily"
+
+approvals:
+  mode: "smart"

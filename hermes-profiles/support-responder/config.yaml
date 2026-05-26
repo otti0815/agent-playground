@@ -1,0 +1,21 @@
+# Support Responder — tuned for ticket triage and copywriting.
+# See _template/config.yaml for the full reference.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 6000          # higher — recurring user context matters
+
+agent:
+  reasoning_effort: "low"          # most replies don't need deep reasoning
+  disabled_toolsets:
+    - browser                       # ticket replies don't need browser automation
+    - tts
+    - stt
+
+approvals:
+  mode: "smart"

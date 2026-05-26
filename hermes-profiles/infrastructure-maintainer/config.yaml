@@ -1,0 +1,27 @@
+# Infrastructure Maintainer — tuned for monitoring and incident response.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 6000          # architecture, SLOs, incident history
+
+agent:
+  reasoning_effort: "medium"
+  max_turns: 120
+  disabled_toolsets:
+    - tts
+    - stt
+
+terminal:
+  backend: "local"                  # full shell — kubectl, terraform, psql
+  persistent_shell: true
+  timeout: 300                      # longer for load tests, deploys
+
+web:
+  backend: "tavily"                 # for searching docs during incidents
+
+approvals:
+  mode: "manual"                    # infra ops should be deliberate

@@ -1,0 +1,21 @@
+# App Store Optimizer — tuned for keyword research and store data scraping.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 5000          # keyword lists, A/B test history
+
+agent:
+  reasoning_effort: "medium"
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "tavily"                 # for keyword research and competitor monitoring
+
+approvals:
+  mode: "smart"

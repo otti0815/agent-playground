@@ -1,0 +1,24 @@
+# Experiment Tracker — tuned for statistical analysis and decision logging.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 8000          # large — active experiment registry
+
+agent:
+  reasoning_effort: "high"          # stats interpretation needs deeper reasoning
+  max_turns: 120
+  disabled_toolsets:
+    - browser
+    - tts
+    - stt
+
+terminal:
+  backend: "local"
+  persistent_shell: true            # SQL / Python for analysis
+
+approvals:
+  mode: "manual"                    # decisions matter; confirm before declaring ship/kill

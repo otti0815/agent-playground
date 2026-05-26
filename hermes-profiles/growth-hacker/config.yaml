@@ -1,0 +1,26 @@
+# Growth Hacker — tuned for experimentation and channel analysis.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 6000
+
+agent:
+  reasoning_effort: "medium"
+  max_turns: 100
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "tavily"
+
+terminal:
+  backend: "local"
+  persistent_shell: true            # SQL for funnel analysis
+
+approvals:
+  mode: "smart"

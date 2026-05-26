@@ -1,0 +1,21 @@
+# Reddit Community Builder — tuned for subreddit monitoring and authentic engagement.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 6000          # per-sub rules and mod relationships accumulate
+
+agent:
+  reasoning_effort: "medium"
+  disabled_toolsets:
+    - tts
+    - stt
+
+web:
+  backend: "tavily"
+
+approvals:
+  mode: "manual"                    # Reddit missteps are unrecoverable; gate posts

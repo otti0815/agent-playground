@@ -1,0 +1,24 @@
+# Feedback Synthesizer — tuned for text analysis and theme clustering.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 8000          # large — theme taxonomy accumulates
+
+agent:
+  reasoning_effort: "medium"
+  max_turns: 100
+  disabled_toolsets:
+    - browser                       # mostly data ingestion, not browsing
+    - tts
+    - stt
+
+terminal:
+  backend: "local"
+  persistent_shell: true            # for SQL / Python on review data
+
+approvals:
+  mode: "smart"

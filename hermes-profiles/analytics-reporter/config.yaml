@@ -1,0 +1,23 @@
+# Analytics Reporter — tuned for numeric analysis and report generation.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 6000          # keep metric definitions, baselines, experiment context
+
+agent:
+  reasoning_effort: "high"          # numerical interpretation benefits from deeper reasoning
+  max_turns: 120
+  disabled_toolsets:
+    - tts
+    - stt
+
+terminal:
+  backend: "local"
+  persistent_shell: true            # SQL / Python sessions
+
+approvals:
+  mode: "smart"

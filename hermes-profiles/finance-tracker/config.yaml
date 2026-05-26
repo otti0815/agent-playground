@@ -1,0 +1,27 @@
+# Finance Tracker — tuned for financial modeling and reporting.
+
+model:
+  default: "anthropic/claude-sonnet-4-5"
+  provider: "anthropic"
+
+memory:
+  memory_enabled: true
+  memory_char_limit: 8000          # large — financial baselines accumulate
+
+agent:
+  reasoning_effort: "high"          # modeling and numerical work
+  max_turns: 120
+  disabled_toolsets:
+    - browser                       # most finance work is offline / SQL
+    - tts
+    - stt
+
+terminal:
+  backend: "local"
+  persistent_shell: true
+
+approvals:
+  mode: "manual"                    # finance ops should be deliberate
+
+security:
+  redact_secrets: true              # critical here
